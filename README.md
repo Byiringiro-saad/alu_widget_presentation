@@ -4,6 +4,12 @@ A small Flutter app for learning the **`AnimatedList`** widget. It has six scree
 
 Open the app, pick a demo from the menu, tap **+** to add an item and tap the red bin to remove one.
 
+## Screenshots
+
+| Home menu | Slide demo |
+|---|---|
+| <img src="screenshots/home.png" alt="Home menu listing the six AnimatedList demos" width="280"> | <img src="screenshots/slide_demo.png" alt="Slide demo screen with a list of fruits, delete buttons and an add button" width="280"> |
+
 ---
 
 ## Table of contents
