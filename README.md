@@ -15,9 +15,7 @@ Open the app, pick a demo from the menu, tap **+** to add an item and tap the re
 5. [Removing an item](#5-removing-an-item)
 6. [The `animation` value](#6-the-animation-value)
 7. [The six examples](#7-the-six-examples)
-8. [Common mistakes](#8-common-mistakes)
-9. [Exercises](#9-exercises)
-10. [Running the project](#10-running-the-project)
+8. [Running the project](#8-running-the-project)
 
 ---
 
@@ -284,42 +282,9 @@ There are two new ideas here:
 1. **Curves.** A `CurvedAnimation` changes **how** the value moves from 0 to 1, not where it starts or ends. `Curves.elasticOut` overshoots past 1 and wobbles back, like a spring. Other curves to try are `Curves.easeOut`, `Curves.bounceOut` and `Curves.easeOutBack`.
 2. **Fixing the jump.** The remove builder puts a `SizeTransition` **on the outside**. The item fades and also shrinks, so the items below slide up smoothly. This solves the problem seen in the Fade and Slide examples.
 
-### Summary
-
-| Screen | Add animation | Remove animation | New idea |
-|---|---|---|---|
-| Fade | `FadeTransition` | same | The basics. Removal leaves a gap. |
-| Size | `SizeTransition` | same | Removal closes smoothly |
-| Slide | `SlideTransition` | same, separate builder | `Tween`, `Offset`, two builders |
-| Scale | `ScaleTransition` | same | |
-| Rotation | `RotationTransition` + `ScaleTransition` | same | Nesting transitions |
-| Combo + Curve | Scale + Fade with `Curves.elasticOut` | `SizeTransition` + Fade | Curves, different add and remove |
-
 ---
 
-## 8. Common mistakes
-
-| Mistake | What happens | Fix |
-|---|---|---|
-| Changing `_items` but forgetting `insertItem` or `removeItem` | Data and list disagree, causing wrong items or a `RangeError` | Always do **both** steps |
-| Calling `setState` to show a new item | Nothing animates, and `initialItemCount` is not re-read | Use `insertItem` and `removeItem` instead |
-| Building the removed item from `_items[index]` | Draws the wrong item, or crashes | Keep the removed item in a variable and pass it to the builder |
-| Using only `FadeTransition` or `SlideTransition` on removal | The space snaps shut at the end | Wrap it in a `SizeTransition` |
-
----
-
-## 9. Exercises
-
-1. **Change the direction.** In `slide_screen.dart`, make items slide in from the **left** and then from **below**.
-2. **Fix the jump.** In `fade_screen.dart`, give removal its own builder that wraps the fade in a `SizeTransition`.
-3. **Try curves.** In `scale_screen.dart`, add a `CurvedAnimation` with `Curves.bounceOut`, then `Curves.easeOutBack`. What's the difference?
-4. **Slow it down.** Set the duration to 2 seconds so you can see exactly what each transition does.
-5. **Add at the top.** Change `_addItem` so new items appear at index `0` instead of the end.
-6. **Make your own screen.** Create a seventh screen with your own combination of transitions and add it to `home_screen.dart`.
-
----
-
-## 10. Running the project
+## 8. Running the project
 
 You need [Flutter](https://docs.flutter.dev/get-started/install) installed.
 
